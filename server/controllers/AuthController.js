@@ -7,8 +7,8 @@ const httpStatus = require('http-status');
 const Util = require('../helpers/Util');
 module.exports = {
 	login(req, res) {
-		var username = req.param('username');
-		var password = req.param('password');
+		var username = req.body.username;
+		var password = req.body.password;
 		return User
 		.findOne({
 			where: {
@@ -19,7 +19,7 @@ module.exports = {
 		})
 		.then((user) => {
 			if (!user) {
-				return res.status(httpStatus.NOT_FOUND).json(Uti.error('User Not Found', httpStatus.NOT_FOUND));
+				return res.status(httpStatus.NOT_FOUND).json(Util.error('User Not Found', httpStatus.NOT_FOUND));
 			}
 			if(user.validatePassword(password)){
 				const cert = fs.readFileSync(path.resolve(__dirname, '..', 'config', 'cert', 'private.key'));  // get private key
