@@ -7,7 +7,7 @@ module.exports = {
     .create({
       username: 'admin',
       email: 'admin@gmail.com',
-      password: 'abc123',
+      password: 'admin',
       role: 'ADMIN'
     })
     .then(user => {return true;})

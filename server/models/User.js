@@ -29,11 +29,22 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
       },
-      validatePassword(password) {
-        return bcrypt.compareSync(password, this.password);
-      },
       generateHash(password) {
         return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+      }
+    },
+    instanceMethods: {
+      validatePassword: function(password) {
+        if (bcrypt.compareSync(password, this.password))
+          return true;
+        else
+          return false;
+      },
+      toJSON: function () {
+        var values = Object.assign({}, this.get());
+
+        delete values.password;
+        return values;
       }
     },
     hooks: {
@@ -47,7 +58,8 @@ module.exports = function(sequelize, DataTypes) {
           user.password = this.generateHash(user.password);
         }
       },
-    }
+    },
+    privateColumns:['password']
   });
   return User;
 };
