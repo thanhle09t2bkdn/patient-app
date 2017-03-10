@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detail</title>
+    <link rel = "stylesheet" href = "https://cdn.rawgit.com/twbs/bootstrap/48938155eb24b4ccdde09426066869504c6dab3c/dist/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity = "sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin = "anonymous">
+    <link rel = "stylesheet" href = "style/detail.css">
+  </head>
+  <body>
+  <form action="">
+    <div class = "container detail-form">
+      <div class = "row">
+        <div class = "col-md-4 profile-photo left">
+          <span class = "glyphicon glyphicon-camera icon-camera"></span>
+          <label class = "icon-title">Profile photo</label>
+        </div>
+        <div class = "col-md-4 col-xs-4 middle-form left">
+          <div class = "patient-form">
+            <label>PATIENT ID</label>
+            <input type = "text" placeholder = "1234" />
+          </div>
+          <div class = "patient-form">
+            <label>PATIENT NAME</label>
+            <input type = "text" />
+          </div>
+        </div>
+        <div class = "col-md-4 col-xs-4 right-form left">
+          <div class = "patient-form">
+            <label>BIRTHDAY</label>
+            <input type = "text" />
+          </div>
+          <div class = "patient-form">
+            <label>GENDER</label>
+            <div class = "gender-group">
+              <div>
+                <input type = "radio" name = "gender" /> <label>Male</label>
+              </div>
+              <div>
+                <input type = "radio" name = "gender" /> <label>Female</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class = "clear"></div>
+      <div class = "row textarea-form media">
+        <label>PAST MEDIACATION</label>
+        <textarea name = "" placeholder = "Mediaction" class = "media-input"></textarea>
+      </div>
+      <div class = "row textarea-form">
+        <label>TAGS</label>
+        <input name = ""  placeholder="Add a tag">
+      </div>
+      <div class = "divided"></div>
+      <div class = "row contact">
+        <div class = "col-md-2 left">
+          <span class = "contact-title">Contact</span>
+        </div>
+        <div class = "col-md-10 left">
+          <div class = "row">
+            <div class = "patient-form contact-form left">
+              <label>ADDRESS</label>
+              <input type = "text" />
+            </div>
+            <div class = "patient-form contact-form contact-input-last left">
+              <label>POSTAL CODE</label>
+              <input type = "text" />
+            </div>
+            <div class = "clear"></div>
+          </div>
+          <div class = "row textarea-form contact-email">
+            <label>EMAIL</label>
+            <input type = "text" class = "email-input" >
+          </div>
+          <div class = "row">
+            <a class = "add-more-contact" href = "#">&#43; Add another contact</a>
+          </div>
+        </div>
+      </div>
+      <div class = "divided"></div>
+      <div class = "clear"></div>
+      <div class = "row pregnancy">
+        <span>Are you planing for pregnancy ?</span>
+          <div class = "pregnancy">
+            <input type = "radio" name = "isPregnancy">
+            <label>Yes</label>
+          </div>
+          <div class = "pregnancy">
+            <input type = "radio" name = "isPregnancy">
+            <label>No</label>
+          </div>
+      </div>
+      <div class = "clear"></div>
+      <div class = "row">
+          <div class = "row textarea-form">
+            <label>IF YES, PLEASE ELABORATE</label>
+            <textarea placeholder = "Elaborate"></textarea>
+          </div>
+      </div>
+      <div class = "row submit">
+        <button class="btn btn-whatever navbar-btn">Save</button>
+      </div>
+    </div>
+  </form>
+  </body>
+</html>
