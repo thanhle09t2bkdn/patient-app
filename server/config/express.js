@@ -3,10 +3,17 @@ const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
 const morgan = require('morgan');
-const multer  = require('multer')
+const multer  = require('multer');
+var busboy = require('connect-busboy');
+app.use(busboy());
 
 
-app.use(multer({ dest: path.resolve(__dirname, '..', '..', '.tmp')}).any());
+// app.use(multer({
+// 	dest: path.resolve(__dirname, '..', '..', '.tmp'),
+// 	onFileUploadStart: function (file) {
+// 	  console.log(file.fieldname + ' is starting ...');
+// 	}
+// }).any());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // Setup logger

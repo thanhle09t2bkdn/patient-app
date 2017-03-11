@@ -3,7 +3,8 @@ const Patient = require('../models').Patient;
 module.exports = {
   up: function (queryInterface, Sequelize) {
     return Patient
-    .create({
+    .create([
+        {
       name: 'Joker son',
       birthday: '03-02-1994',
       gender: 1,
@@ -33,6 +34,7 @@ module.exports = {
       pregnancy: false,
       elaboration: 'Three months later'
     }
+        ]
     )
     .then(patient => {return true;})
     .catch(error => {console.log(error); return false;});
