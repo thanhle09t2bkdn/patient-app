@@ -1,5 +1,6 @@
 const AuthController = require('../controllers').AuthController;
 const PatientController = require('../controllers').PatientController;
+const UploadController = require('../controllers').UploadController;
 const AuthAPI = require('../middlewares/AuthAPI');
 const isAdmin = require('../middlewares/isAdmin');
 module.exports = (app) => {

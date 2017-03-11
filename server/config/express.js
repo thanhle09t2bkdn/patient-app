@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const multer  = require('multer')
 
 
-app.use(multer({ dest: __dirname + '../uploads/'}).any());
+app.use(multer({ dest: path.resolve(__dirname, '..', '..', '.tmp')}).any());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // Setup logger
