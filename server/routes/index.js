@@ -8,5 +8,6 @@ module.exports = (app) => {
   }));
   app.post('/api/login', AuthController.login);
   app.get('/api/patient/index', [AuthAPI, isAdmin], PatientController.index);
-  app.post('/api/patient/upload', PatientController.upload);
+  app.put('/api/patient/update/:id', [AuthAPI, isAdmin], PatientController.update);
+  app.post('/api/upload', UploadController.index);
 };
