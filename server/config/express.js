@@ -3,10 +3,12 @@ const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
 const morgan = require('morgan');
+const multer  = require('multer')
 
+
+app.use(multer({ dest: __dirname + '../uploads/'}).any());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 

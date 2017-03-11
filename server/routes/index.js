@@ -8,4 +8,5 @@ module.exports = (app) => {
   }));
   app.post('/api/login', AuthController.login);
   app.get('/api/patient/index', [AuthAPI, isAdmin], PatientController.index);
+  app.post('/api/patient/upload', PatientController.upload);
 };
