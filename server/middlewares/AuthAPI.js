@@ -36,14 +36,18 @@ const Util = require('../helpers/Util');
             return res.status(httpStatus.BAD_REQUEST).json(Util.error(err.message, httpStatus.BAD_REQUEST));
         }
         // Find the user with that token
+        // console.log(payload);
         User
         .findById(payload.id)
         .then((user) => {
+            if(!user){
+                return res.status(httpStatus.NOT_FOUND).json(Util.error("Not found user", httpStatus.NOT_FOUND));
+            }
             req.user = user;
             next();
         })
-        .catch((error) => {
-            return res.status(httpStatus.NOT_FOUND).json(Util.error("Not found user", httpStatus.NOT_FOUND));
+        .catch((err) => {
+            return res.status(httpStatus.BAD_REQUEST).json(Util.error(err.message, httpStatus.BAD_REQUEST));
         });
     });
 };
