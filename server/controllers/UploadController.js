@@ -5,7 +5,6 @@ const httpStatus = require('http-status');
 const Util = require('../helpers/Util');
 const fs = require('fs');
 const path = require('path');
-const busboy = require('connect-busboy');
 const uuidV1 = require('uuid/v1');
 
 module.exports = {

@@ -3,26 +3,20 @@ const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
 const morgan = require('morgan');
-const multer  = require('multer');
-var busboy = require('connect-busboy');
+const busboy = require('connect-busboy');
+const cors = require('cors');
+const Util = require('../helpers/Util');
+
 app.use(busboy());
 
-
-// app.use(multer({
-// 	dest: path.resolve(__dirname, '..', '..', '.tmp'),
-// 	onFileUploadStart: function (file) {
-// 	  console.log(file.fieldname + ' is starting ...');
-// 	}
-// }).any());
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
 require('../routes')(app);
-app.get('/', (req, res) => res.status(200).send({
-	message: 'Welcome to the beginning of nothingness.',
-}));
+app.get('/', (req, res) => res.json(Util.success('Welcome to the beginning of nothingness.')));
 
 
 // Serve static assets

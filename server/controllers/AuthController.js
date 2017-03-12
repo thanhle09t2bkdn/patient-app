@@ -14,8 +14,7 @@ module.exports = {
 			where: {
 				username: username,
 				role: 'ADMIN'
-			},
-			// attributes: ['id', 'username', 'email', 'role']
+			}
 		})
 		.then((user) => {
 			if (!user) {
