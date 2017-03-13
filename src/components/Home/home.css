@@ -1,0 +1,103 @@
+.container-fluid {
+    padding: 0 50px;
+}
+
+header {
+    background-color: #AAA;
+    padding: 25px 0;
+}
+
+.home-wrapper {
+    padding-top: 10px;
+    background-color: #F9F9F9;
+}
+
+.search-input {
+    margin: 0;
+    padding: 0 7px 0 0;
+}
+
+.search-button {
+    padding: 0;
+}
+
+.search-input input {
+    height: 43px;
+
+}
+
+.search-button button {
+    height: 43px;
+    background-color: #FF8B09 !important;
+    width: 100%;
+    color: #FFF;
+}
+
+.left-bar-top {
+    margin-bottom: 15px;
+}
+
+.status-title, .update-title {
+    margin-bottom: 5px;
+    display: block;
+    margin-left: 2px;
+}
+
+.left-bar {
+    padding-left: 0;
+    padding-right: 40px;
+}
+
+.left-bar > .status-title {
+    color: #5B5B5B;
+}
+
+.left-bar .btn {
+    text-align: left;
+}
+
+.left-bar .caret {
+    float: right;
+    margin-top: 8px;
+}
+
+.content {
+    border: 0 solid;
+    border-radius: 5px;
+    background-color: #FFF;
+    padding: 15px;
+}
+
+.dropdown-toggle::after {
+    margin-left: 5.25rem;
+}
+
+.dropdown-menu {
+    width: 223px;
+}
+
+.dropdown button {
+    width: 100%;
+}
+
+.media-body {
+    padding-left: 10px;
+}
+.media-left img {
+    width: 80px;
+}
+.patient-detail {
+    width: 80%;
+    border-right: dashed 1px;
+    margin: 0;
+    padding: 0;
+}
+
+.patient-detail > .row {
+    margin: 0;
+}
+
+.nopadding {
+    margin: 0 !important;
+    padding: 0 !important;
+}

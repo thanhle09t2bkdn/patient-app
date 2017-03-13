@@ -10,11 +10,13 @@
     "supertest-as-promised": "^4.0.0"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
     "busboy": "^0.2.14",
     "classnames": "^2.2.5",
     "connect-busboy": "0.0.2",
+    "cors": "^2.8.1",
     "express": "^4.14.0",
     "http-status": "^1.0.1",
     "jsonwebtoken": "^7.3.0",
@@ -26,7 +28,11 @@
     "react-dom": "^15.2.1",
     "react-redux": "^5.0.3",
     "react-router": "^2.6.1",
-    "sequelize": "^3.30.2"
+    "react-sparklines": "^1.6.0",
+    "redux": "^3.6.0",
+    "redux-promise": "^0.5.3",
+    "sequelize": "^3.30.2",
+    "validator": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -9,7 +9,7 @@ module.exports = (app) => {
   }));
   app.post('/api/login', AuthController.login);
   app.get('/api/patient/index', PatientController.index);
-  app.put('/api/patient/update/:id', [AuthAPI, isAdmin], PatientController.update);
+  app.put('/api/patient/update/:id', PatientController.update);
   app.post('/api/upload', UploadController.index);
   app.get('/api/patient/index/:term', PatientController.find);
 };

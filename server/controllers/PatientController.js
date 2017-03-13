@@ -16,26 +16,13 @@ module.exports = {
     },
     update(req, res) {
         const id = req.params.id;
-        let newPatient = {
-            name: req.body.name,
-            gender: req.body.gender,
-            avatar: req.body.avatar,
-            birthday: req.body.birthday,
-            pastMediacation: req.body.pastMediacation,
-            tags: req.body.tags,
-            contact: req.body.contact,
-            pregnancy: req.body.pregnancy,
-            elaboration: req.body.elaboration,
-        };
+        let newPatient = req.body;
         Patient.update(newPatient, {
-            where: {
-                id: id
-            }
+            where: { id: id }
         }).then((updatedPatient) => {
-                console.log(updatedPatient);
-                return res.json(Util.success('Update patients success!', updatedPatient));
-            })
-            .catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
+            return res.json(Util.success('Update patients success!', updatedPatient));
+        })
+        .catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
     },
     find(req, res) {
         const term = req.params.term;
