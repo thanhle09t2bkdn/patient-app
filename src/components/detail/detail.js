@@ -5,7 +5,7 @@ import UpdateForm from '../../containers/detail/update_form';
 export default class Home extends Component {
   render() {
     return (
-        <UpdateForm/>
+        <UpdateForm id={this.props.params.id} />
     );
   }
 }

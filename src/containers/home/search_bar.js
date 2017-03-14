@@ -25,7 +25,7 @@ class SearchBar extends Component {
   render() {
     return (
         <div className="container-fluid">
-          <form onSubmit={this.onFormSubmit}>
+          <form onSubmit={ this.onFormSubmit }>
             <div className="row">
               <div className="col-md-11">
                 <div className="row">

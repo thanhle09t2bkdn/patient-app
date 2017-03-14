@@ -40,5 +40,17 @@ module.exports = {
         }).then((patients) => {
             return res.json(Util.success('Get patients success!', patients));
         }).catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
+    },
+    detailPatient(req, res) {
+        const id = req.params.id;
+        Patient.findOne({
+			where: {
+				id: id
+			}
+		})
+		.then((patient) => {
+            return res.json(Util.success('Get patients success!', patient));
+        })
+        .catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
     }
 };

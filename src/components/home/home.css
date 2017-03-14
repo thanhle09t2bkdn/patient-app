@@ -79,7 +79,9 @@ header {
 .dropdown button {
     width: 100%;
 }
-
+.media {
+    cursor: pointer;
+}
 .media-body {
     padding-left: 10px;
 }

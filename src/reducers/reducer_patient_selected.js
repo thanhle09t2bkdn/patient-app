@@ -1,8 +1,8 @@
-import { UPDATE_PATIENT } from '../actions/patient/update_patient';
+import { PATIENT_SELECTED } from '../actions/patient/patient_selected';
 
 export default function(state = null, action) {
   switch (action.type) {
-  case UPDATE_PATIENT:
+  case PATIENT_SELECTED:
     return action.payload.data.data;
   }
   return state;
