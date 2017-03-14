@@ -1,5 +1,4 @@
 const Patient = require('../models').Patient;
-const env = require('../config/env');
 const fs = require('fs');
 const path = require('path');
 const httpStatus = require('http-status');

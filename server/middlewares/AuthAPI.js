@@ -4,7 +4,6 @@
  */
 const jwt = require('jsonwebtoken');
 const User = require('../models').User;
-const config = require('../config/env');
 const fs = require('fs');
 const path = require('path');
 const httpStatus = require('http-status');

@@ -149,10 +149,10 @@ class UpdateForm extends Component {
                 <label>GENDER</label>
                 <div className="gender-group">
                   <div>
-                    <input type="radio" name="gender" onChange={ this.onChangeData } defaultValue='1' defaultChecked={ maleChecked } /> <label>Male</label>
+                    <input type="radio" name="gender" id="gender-male" onChange={ this.onChangeData } defaultValue='1' defaultChecked={ maleChecked } /> <label htmlFor="gender-male">Male</label>
                   </div>
                   <div>
-                    <input type="radio" name="gender" onChange={ this.onChangeData } defaultValue='0' defaultChecked={ femaleChecked } /> <label>Female</label>
+                    <input type="radio" name="gender" id="gender-female" onChange={ this.onChangeData } defaultValue='0' defaultChecked={ femaleChecked } /> <label htmlFor="gender-female">Female</label>
                   </div>
                 </div>
               </div>
@@ -177,12 +177,12 @@ class UpdateForm extends Component {
           <div className="row pregnancy">
             <span>Are you planing for pregnancy ?</span>
               <div className="pregnancy">
-                <input type="radio" name="pregnancy" defaultValue={ true } defaultChecked={ patientSelected.pregnancy } onChange={ this.onChangeData } />
-                <label>Yes</label>
+                <input type="radio" name="pregnancy" id="pregnancy-yes" defaultValue={ true } defaultChecked={ patientSelected.pregnancy } onChange={ this.onChangeData } />
+                <label htmlFor="pregnancy-yes">Yes</label>
               </div>
               <div className="pregnancy">
-                <input type="radio" name="pregnancy" defaultValue={ false } defaultChecked={ notPregnancy } onChange={ this.onChangeData } />
-                <label>No</label>
+                <input type="radio" name="pregnancy" id="pregnancy-no" defaultValue={ false } defaultChecked={ notPregnancy } onChange={ this.onChangeData } />
+                <label htmlFor="pregnancy-no">No</label>
               </div>
           </div>
           <div className="clear"></div>

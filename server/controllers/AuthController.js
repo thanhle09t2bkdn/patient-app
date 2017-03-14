@@ -1,12 +1,13 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models').User;
-const env = require('../config/env');
 const fs = require('fs');
 const path = require('path');
 const httpStatus = require('http-status');
 const Util = require('../helpers/Util');
+const config = require('../config');
 module.exports = {
 	login(req, res) {
+		console.log(req.body);
 		var username = req.body.username;
 		var password = req.body.password;
 		return User
@@ -27,7 +28,7 @@ module.exports = {
 							role: user.role,
                         }, 
                         cert, 
-                        {algorithm: 'RS256', expiresIn: env.expireTime}
+                        {algorithm: 'RS256', expiresIn: config.expireTime}
                         );
 				var valuesUser = user.toJSON();
                 valuesUser.token = token;

@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const busboy = require('connect-busboy');
 const cors = require('cors');
 const Util = require('../helpers/Util');
+const config = require('./index');
 
 app.use(busboy());
 
@@ -13,10 +14,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // Setup logger
-app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
+if (config.env === 'development') {
+    app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
+}
+
 
 require('../routes')(app);
-app.get('/', (req, res) => res.json(Util.success('Welcome to the beginning of nothingness.')));
 
 
 // Serve static assets

@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPatient } from '../../actions/patient/fetch_patient';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 class PatientList extends Component {
     constructor(props) {
         super(props);
         this.props.fetchPatient();
     }
+
+
     renderPatient(patient) {
         return (
             <div className="media" key={ patient.id }>
