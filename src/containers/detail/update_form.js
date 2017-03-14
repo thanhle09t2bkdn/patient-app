@@ -5,6 +5,8 @@ import { getDetailPatient } from '../../actions/patient/patient_selected';
 import { updatePatient } from '../../actions/patient/update_patient';
 import ContactItem from '../../containers/detail/contact_item';
 import ReactDOM from 'react-dom';
+import {browserHistory} from 'react-router';
+
 class UpdateForm extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +43,9 @@ class UpdateForm extends Component {
 
   onFormSubmit(event) {
       event.preventDefault();
-      this.props.updatePatient(this.state.patient);
+      this.props.updatePatient(this.state.patient).payload.then(response => {
+        browserHistory.push('/home');
+      });
   }
   imageChange(event) {
     event.preventDefault();
@@ -58,24 +62,6 @@ class UpdateForm extends Component {
   trigerInputFile() {
     ReactDOM.findDOMNode(this.refs.fileInput).click();
   }
-  // onAddressChange(event) {
-  //   let newContact = JSON.parse(this.state.contact);
-  //   newContact.address = event.target.value;
-  //   newContact = JSON.stringify(newContact);
-  //   this.setState({ contact: newContact });
-  // }
-  // onPostalCodeChange(event) {
-  //   let newContact = JSON.parse(this.state.contact);
-  //   newContact.postalCode = event.target.value;
-  //   newContact = JSON.stringify(newContact);
-  //   this.setState({ contact: newContact });
-  // }
-  // onEmailChange(event) {
-  //   let newContact = JSON.parse(this.state.contact);
-  //   newContact.email = event.target.value;
-  //   newContact = JSON.stringify(newContact);
-  //   this.setState({ contact: newContact });
-  // }
   onChangeData(event) {
     const field = event.target.name;
     const patient = this.state.patient;
@@ -106,7 +92,6 @@ class UpdateForm extends Component {
           break;
     }
     this.state.patient.contact = JSON.stringify(contacts);
-    console.log(this.state.patient.contact);
   }
   onAddContact(event) {
     this.setState({ countContact: ++this.state.countContact });
@@ -230,7 +215,7 @@ function mapStateToProps({ patientSelected }) {
   return { patientSelected };
 }
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ updatePatient, getDetailPatient }, dispatch);
+    return bindActionCreators({ updatePatient: updatePatient, getDetailPatient: getDetailPatient }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpdateForm);

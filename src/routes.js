@@ -11,7 +11,6 @@ const Routes = (props) => (
       {/* onEnter={Auth.requireAuth}*/}
       <Route path="/" component={ Home } />
       <Route path="/home" component={ Home }/>
-      <Route path="/detail" component={ Detail }/>
       <Route path="/login" component={ Login } />
       <Route path="/:id" component={ Detail } />
   </Router>

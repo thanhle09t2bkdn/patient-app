@@ -111,6 +111,8 @@
 .add-more-contact {
     font-size: 13px;
     color: #5bb2de;
+    cursor: pointer;
+    margin-left: 80px;
 }
 .pregnancy{
     float: left;
