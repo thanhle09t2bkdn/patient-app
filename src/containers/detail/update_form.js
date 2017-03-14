@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 import { getDetailPatient } from '../../actions/patient/patient_selected';
 import { updatePatient } from '../../actions/patient/update_patient';
 import ContactItem from '../../containers/detail/contact_item';
-const $ = require ('jquery');
 
 import ReactDOM from 'react-dom';
 class UpdateForm extends Component {
@@ -23,7 +22,7 @@ class UpdateForm extends Component {
           gender: null,
           pregnancy: null,
           elaboration: null,
-          contact: {}
+          contact: ''
         }
     };
     this.props.getDetailPatient(this.props.id).then((response) => {
@@ -37,6 +36,7 @@ class UpdateForm extends Component {
     this.trigerInputFile = this.trigerInputFile.bind(this);
     this.imageChange = this.imageChange.bind(this);
     this.onAddContact = this.onAddContact.bind(this);
+    this.onChangeContact = this.onChangeContact.bind(this);
     this.onChangeData = this.onChangeData.bind(this);
   }
 
@@ -83,6 +83,32 @@ class UpdateForm extends Component {
     patient[field] = event.target.value;
     this.setState({ patient });
   }
+  onChangeContact(event) {
+    let tempArray = event.target.name.split("_");
+    let newValue = event.target.value;
+    let contacts = JSON.parse(this.state.patient.contact);
+    if(!contacts[tempArray[1]]) {
+        contacts[tempArray[1]] = {
+          address: '',
+          postalCode: '',
+          email: ''
+        }
+        this.state.patient.contact = JSON.stringify(contacts);
+    }
+    switch (tempArray[0]) {
+        case 'address':
+          contacts[tempArray[1]].address = newValue;
+          break;
+        case 'postalCode':
+          contacts[tempArray[1]].postalCode = newValue;
+          break;
+        case 'email':
+          contacts[tempArray[1]].email = newValue;
+          break;
+    }
+    this.state.patient.contact = JSON.stringify(contacts);
+    console.log(this.state.patient.contact);
+  }
   onAddContact(event) {
     this.setState({ countContact: ++this.state.countContact });
   }
@@ -91,7 +117,7 @@ class UpdateForm extends Component {
     let contacts = JSON.parse(patientSelected.contact);
     const contactItem = [];
     for (var i = 0; i < this.state.countContact; i += 1) {
-        contactItem.push(<ContactItem key={i} order={i} contact={ contacts[i] } onChangeData={ this.onChangeData } />);
+        contactItem.push(<ContactItem key={i} order={i} contact={ contacts[i] } onChangeContact={ this.onChangeContact } />);
     };
     let maleChecked = false;
     let femaleChecked = false;
@@ -158,18 +184,9 @@ class UpdateForm extends Component {
             <input name="tags"  placeholder="Add a tag" onChange={ this.onChangeData } defaultValue={ patientSelected.tags } />
           </div>
           <div className="divided"></div>
-          <div className="row contact">
-            <div className="col-md-2 left">
-              <span className="contact-title">Contact</span>
-            </div>
-            <div className="col-md-10 left">
-              <div className="contact-form">
-                { contactItem }
-              </div>
-              <div className="row">
-                <a className="add-more-contact" onClick={ this.onAddContact }>&#43; Add another contact</a>
-              </div>
-            </div>
+            { contactItem }
+          <div className="row">
+            <a className="add-more-contact" onClick={ this.onAddContact }>&#43; Add another contact</a>
           </div>
           <div className="divided"></div>
           <div className="clear"></div>

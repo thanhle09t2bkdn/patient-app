@@ -95,7 +95,12 @@
     border-bottom: 1px solid #bbb;
 }
 .contact {margin-left: -15px;}
-.contact .contact-title {display: block;font-size: 18px;margin-top: 5px;}
+.contact .contact-title {
+    display: block;
+    font-size: 16px;
+    margin-top: 5px;
+    width: 90px;
+}
 .contact-email textarea {
     width: 362px;
     height: 24px;
