@@ -1,4 +1,5 @@
 'use strict';
+const dateFormat = require('dateformat');
 module.exports = function (sequelize, DataTypes) {
     var Patient = sequelize.define('Patient', {
         id: {
@@ -47,7 +48,14 @@ module.exports = function (sequelize, DataTypes) {
             associate: function (models) {
                 // associations can be defined here
             }
-        }
+        },
+        instanceMethods: {
+          toJSON: function () {
+            var values = Object.assign({}, this.get());
+              values.birthday = dateFormat(values.birthday, "yyyy-mm-dd");
+            return values;
+          }
+        },
     });
     return Patient;
 };

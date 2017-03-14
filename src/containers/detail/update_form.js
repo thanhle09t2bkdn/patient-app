@@ -117,7 +117,7 @@ class UpdateForm extends Component {
     let {imagePreviewUrl} = this.state;
     let imagePreview = null;
     if (imagePreviewUrl) {
-      imagePreview = (<img className="default-img" src={ imagePreviewUrl } onClick={ this.trigerInputFile } />);
+      imagePreview = (<img className="selective-img" src={ imagePreviewUrl } onClick={ this.trigerInputFile } />);
     } else {
       imagePreview = (<img className="default-img" src="/uploads/images/No-image-found.jpg" onClick={ this.trigerInputFile } alt=""/>);
     }
@@ -143,7 +143,7 @@ class UpdateForm extends Component {
             <div className="col-md-4 col-xs-4 right-form left">
               <div className="patient-form">
                 <label>BIRTHDAY</label>
-                <input type="text" onChange={ this.onChangeData } name="birthday" defaultValue={ patientSelected.birthday } />
+                <input type="date" onChange={ this.onChangeData } name="birthday" defaultValue={ patientSelected.birthday } />
               </div>
               <div className="patient-form">
                 <label>GENDER</label>

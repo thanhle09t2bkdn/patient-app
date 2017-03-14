@@ -8,6 +8,7 @@ const validator = require('validator');
 module.exports = {
     index(req, res) {
         Patient.findAll({
+            order: [['updatedAt', 'DESC']],
             attributes: ['id', 'avatar', 'name']
         }).then((patients) => {
             return res.json(Util.success('Get patients success!', patients));

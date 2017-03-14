@@ -139,3 +139,10 @@
     width: 58px;
     margin-top: 14px;
 }
+.selective-img {
+    width: 92px;
+    margin-left: -16px;
+    height: 92px;
+    margin-top: -1px;
+    border-radius: 50%;
+}
