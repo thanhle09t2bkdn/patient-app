@@ -47,7 +47,7 @@ class PatientList extends Component {
         } else {
           return (<div>Loading...</div>)
         }
-      }
+    }
 }
 
 function mapStateToProps({ patients }) {

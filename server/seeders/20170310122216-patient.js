@@ -3,38 +3,17 @@ const Patient = require('../models').Patient;
 module.exports = {
   up: function (queryInterface, Sequelize) {
     return Patient
-    .create([
-        {
+    .create(
+      {
       name: 'Joker son',
       birthday: '03-02-1994',
       gender: 1,
       pastMediacation: 'joker@gmail.com',
       tags: 'Appointment',
-      contact: '{"location":"Phonix"}',
-      pregnancy: false,
-      elaboration: 'Three months later'
-    },
-    {
-      name: 'Joker Thanh',
-      birthday: '03-02-1994',
-      gender: 1,
-      pastMediacation: 'thanhle@gmail.com',
-      tags: 'Appointment',
-      contact: '{"location":"Phonix"}',
-      pregnancy: false,
-      elaboration: 'Three months later'
-    },
-    {
-      name: 'Joker Anh',
-      birthday: '03-02-1994',
-      gender: 1,
-      pastMediacation: 'ta@gmail.com',
-      tags: 'Appointment',
-      contact: '{"location":"Phonix"}',
+      contact: '[{"address":"Phonix", "postalCode": "12234", "email": "jocker@gmail.com"},{"address":"Phonix", "postalCode": "12234", "email": "jocker@gmail.com"}]',
       pregnancy: false,
       elaboration: 'Three months later'
     }
-        ]
     )
     .then(patient => {return true;})
     .catch(error => {console.log(error); return false;});
