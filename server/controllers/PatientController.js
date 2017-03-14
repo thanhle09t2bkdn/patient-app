@@ -22,35 +22,46 @@ module.exports = {
             let newPatient = fields;
 
             let file = files.file;
-            let newFileName = `${uuidV1()}_${file.name}`;
-            var tmpPath = file.path;
-            var newPath = path.resolve(__dirname, '..', '..', `uploads/${newFileName}`);
-            fs.rename(tmpPath, newPath, function (err) {
-                if (err) {
-                    return res.status(httpStatus.BAD_REQUEST).json(Util.error(err.message, httpStatus.BAD_REQUEST));
-                }
-                Patient.findByPrimary(id).then(patient => {
-                    let oldFileName = patient.avatar;
-                    newPatient.avatar = newFileName;
-                    console.log(newPatient);
-                    Patient.update(newPatient, {
-                        where: { id: id }
-                    }).then((affectedCount) => {
-                        let oldPath = path.resolve(__dirname, '..', '..', `uploads/${oldFileName}`);
-                        fs.unlink(oldPath, (error) => {
-                            if (error) {
-                                return res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST));
-                            }
-                            Patient.findByPrimary(id).then(patient => {
-                                return res.json(Util.success('Update patients success!', patient));
-                            }).catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
+            if(file) {
+                let newFileName = `${uuidV1()}_${file.name}`;
+                var tmpPath = file.path;
+                var newPath = path.resolve(__dirname, '..', '..', `uploads/${newFileName}`);
+                fs.rename(tmpPath, newPath, function (err) {
+                    if (err) {
+                        return res.status(httpStatus.BAD_REQUEST).json(Util.error(err.message, httpStatus.BAD_REQUEST));
+                    }
+                    Patient.findByPrimary(id).then(patient => {
+                        let oldFileName = patient.avatar;
+                        newPatient.avatar = newFileName;
+                        Patient.update(newPatient, {
+                            where: { id: id }
+                        }).then((affectedCount) => {
+                            let oldPath = path.resolve(__dirname, '..', '..', `uploads/${oldFileName}`);
+                            fs.unlink(oldPath, (error) => {
+                                if (error) {
+                                    return res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST));
+                                }
+                                Patient.findByPrimary(id).then(patient => {
+                                    return res.json(Util.success('Update patients success!', patient));
+                                }).catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
 
-                        });
+                            });
 
-                    }).catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
+                        }).catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
+                    });
+
                 });
+            }else {
+                Patient.update(newPatient, {
+                    where: { id: id }
+                }).then((affectedCount) => {
+                    Patient.findByPrimary(id).then(patient => {
+                        return res.json(Util.success('Update patients success!', patient));
+                    }).catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
 
-            });
+                }).catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
+            }
+
         });
 
 
