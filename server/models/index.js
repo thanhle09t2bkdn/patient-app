@@ -6,9 +6,9 @@ const Sequelize = require('sequelize');
 const basename  = path.basename(module.filename);
 const env       = process.env.NODE_ENV || 'development';
 var db        = {};
-const config = require('../config');
+const config    = require(__dirname + '/../config/config.json')[env];
 
-var sequelize = new Sequelize(config.db.database, config.db.username, config.db.password, config.db);
+var sequelize = new Sequelize(config.database, config.username, config.password, config);
 
 fs
 .readdirSync(__dirname)
