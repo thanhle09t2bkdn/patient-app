@@ -1,7 +1,7 @@
 // server/index.js
 
 const app = require('./app');
-const config = require('./config/env');
+const config = require('./config');
 
 const PORT = config.port || 9000;
 

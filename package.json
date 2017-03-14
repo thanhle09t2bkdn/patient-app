@@ -17,6 +17,7 @@
     "classnames": "^2.2.5",
     "connect-busboy": "0.0.2",
     "cors": "^2.8.1",
+    "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "http-status": "^1.0.1",
     "jsonwebtoken": "^7.3.0",
