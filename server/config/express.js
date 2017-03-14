@@ -8,7 +8,7 @@ const cors = require('cors');
 const Util = require('../helpers/Util');
 const config = require('./index');
 
-app.use(busboy());
+// app.use(busboy());
 
 app.use(cors());
 app.use(bodyParser.json());

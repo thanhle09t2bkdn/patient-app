@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { getDetailPatient } from '../../actions/patient/patient_selected';
 import { updatePatient } from '../../actions/patient/update_patient';
 import ContactItem from '../../containers/detail/contact_item';
+import {upload} from '../../actions/upload/index';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
 
@@ -43,8 +44,16 @@ class UpdateForm extends Component {
 
   onFormSubmit(event) {
       event.preventDefault();
-      this.props.updatePatient(this.state.patient).payload.then(response => {
-        browserHistory.push('/home');
+
+      let formData = new FormData();
+      let file = ReactDOM.findDOMNode(this.refs.fileInput).files[0];
+      formData.append('file', file);
+      var data = this.state.patient;
+      Object.keys(data).forEach(function(key) {
+          formData.append(key, data[key]);
+      });
+      this.props.updatePatient(data.id, formData).payload.then(response => {
+          browserHistory.push('/home');
       });
   }
   imageChange(event) {
