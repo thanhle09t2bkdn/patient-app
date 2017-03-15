@@ -1,12 +1,12 @@
 import axios from 'axios';
 export const AUTH_LOGIN = 'AUTH_LOGIN';
-const ROOT_URL = `http://localhost:4000/api`;
+import { API_URL } from '../../config';
 
 export function login(data) {
     Object.keys(data).forEach((key) => (data[key] === "") && delete data[key]);
 
     return function(dispatch) {
-        let response = axios(`${ROOT_URL}/login`, {
+        let response = axios(`${API_URL}/login`, {
             method: 'post',
             data: data
         });

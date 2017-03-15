@@ -3,6 +3,7 @@ import {browserHistory} from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getDetailPatient } from '../../actions/patient/patient_actor';
+import { MAIN_URL } from '../../config';
 class PatientItem extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,7 @@ class PatientItem extends Component {
       return (
         <div className="media" onClick={() => {this.clickOnPatient(patient)}}>
             <div className="media-left">
-                <img src={ patient.avatar ? `/uploads/${patient.avatar}` : `/uploads/images/no-avatar.png`} alt="" className="media-object"  />
+                <img src={ patient.avatar ? `${MAIN_URL}/${patient.avatar}` : `${MAIN_URL}/images/no-avatar.png`} alt="" className="media-object"  />
             </div>
             <div className="media-body">
                 <h4 className="media-heading"><b>{ patient.name }</b></h4>

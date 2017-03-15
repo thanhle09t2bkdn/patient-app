@@ -2,7 +2,7 @@
  * Created by sonvu on 15/03/2017.
  */
 import axios from 'axios';
-import { ROOT_URL } from '../../config';
+import { API_URL } from '../../config';
 export const FETCH_PATIENT = 'FETCH_PATIENT';
 export const UPDATE_PATIENT = 'UPDATE_PATIENT';
 export const PATIENT_SELECTED = 'PATIENT_SELECTED';
@@ -18,13 +18,13 @@ export function fetchPatient(term) {
     }
     header.headers = { 'Authorization': `Bearer ${token}` };
     if (!term) {
-        let request = axios.get(`${ROOT_URL}/patient/index`, header);
+        let request = axios.get(`${API_URL}/patient/index`, header);
         return {
             type: FETCH_PATIENT,
             payload: request
         };
     } else {
-        let request = axios.get(`${ROOT_URL}/patient/index/${term}`, header);
+        let request = axios.get(`${API_URL}/patient/index/${term}`, header);
         return {
             type: FETCH_PATIENT,
             payload: request
@@ -32,7 +32,7 @@ export function fetchPatient(term) {
     }
 }
 export function getDetailPatient(id) {
-    let request = axios.get(`${ROOT_URL}/patient/${id}`, header);
+    let request = axios.get(`${API_URL}/patient/${id}`, header);
     return {
         type: PATIENT_SELECTED,
         payload: request
@@ -41,7 +41,7 @@ export function getDetailPatient(id) {
 export function updatePatient(id, data) {
   Object.keys(data).forEach((key) => (data[key] === "") && (data[key] = null));
   return function(dispatch) {
-    let response = axios(`${ROOT_URL}/patient/update/${id}`, {
+    let response = axios(`${API_URL}/patient/update/${id}`, {
         method: 'put',
         data: data,
         headers: header.headers

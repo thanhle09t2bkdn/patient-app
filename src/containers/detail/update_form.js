@@ -5,6 +5,7 @@ import { getDetailPatient, updatePatient } from '../../actions/patient/patient_a
 import ContactItem from '../../containers/detail/contact_item';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
+import { MAIN_URL } from '../../config';
 
 class UpdateForm extends Component {
   constructor(props) {
@@ -130,10 +131,10 @@ class UpdateForm extends Component {
     if (imagePreviewUrl) {
       imagePreview = (<img className="selective-img" src={ imagePreviewUrl } onClick={ this.trigerInputFile } />);
     } else if(this.state.patient.avatar){
-        imagePreview = (<img className="selective-img" src={`/uploads/${this.state.patient.avatar}`} onClick={ this.trigerInputFile } alt=""/>);
+        imagePreview = (<img className="selective-img" src={`${MAIN_URL}/${this.state.patient.avatar}`} onClick={ this.trigerInputFile } alt=""/>);
     }
     else {
-      imagePreview = (<img className="selective-img" src="/uploads/images/no-image.jpg" onClick={ this.trigerInputFile } alt=""/>);
+      imagePreview = (<img className="selective-img" src={`${MAIN_URL}/images/no-image.jpg`} onClick={ this.trigerInputFile } alt=""/>);
     }
     return (
       <form onSubmit={ this.onFormSubmit }>
