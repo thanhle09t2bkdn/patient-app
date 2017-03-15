@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { login } from '../../actions/auth/login';
+import {browserHistory} from 'react-router';
+import Auth from '../../utils/Auth';
 
 
 class LoginForm extends Component {
@@ -31,11 +33,10 @@ class LoginForm extends Component {
 
     submitForm(event) {
         event.preventDefault();
-        this.props.login(this.state.user).then(({type, payload}) => {
-            console.log(payload);
-        }).catch(data => {
-            console.log("thanh");
-        });
+        this.props.login(this.state.user).payload.then(response => {
+            Auth.authenticateUser(response.data.data.token);
+            browserHistory.push('/home');
+        }).catch((data) => {console.log(data);});
     }
 
     changeUser(event) {
