@@ -8,7 +8,9 @@ export const UPDATE_PATIENT = 'UPDATE_PATIENT';
 export const PATIENT_SELECTED = 'PATIENT_SELECTED';
 import util from '../../utils/Auth'
 
-var header = {};
+var header = {
+    headers:  { 'Authorization': `Bearer ${util.getToken()}` }
+};
 export function fetchPatient(term) {
     const token = util.getToken();
     if (!token) {
