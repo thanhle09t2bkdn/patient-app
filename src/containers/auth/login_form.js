@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {login} from '../../actions/auth/login';
+
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { login } from '../../actions/auth/login_actor';
 import {browserHistory} from 'react-router';
 import Auth from '../../utils/Auth';
 
@@ -28,8 +29,7 @@ class LoginForm extends Component {
         this.props.login(this.state.user).payload.then(response => {
             Auth.authenticateUser(response.data.data.token);
             browserHistory.push('/home');
-        }).catch((data) => {
-            console.log(data.data.message);
+        }).catch(data => {
             this.setState({
                 errors: data.data.message
             });

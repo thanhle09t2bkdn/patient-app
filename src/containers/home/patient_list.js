@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchPatient } from '../../actions/patient/fetch_patient';
+import { fetchPatient } from '../../actions/patient/patient_actor';
 import PatientItem from '../../containers/home/paitent_item';
 
 class PatientList extends Component {

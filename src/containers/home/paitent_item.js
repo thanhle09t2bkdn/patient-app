@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {browserHistory} from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getDetailPatient } from '../../actions/patient/patient_selected';
+import { getDetailPatient } from '../../actions/patient/patient_actor';
 class PatientItem extends Component {
   constructor(props) {
     super(props);

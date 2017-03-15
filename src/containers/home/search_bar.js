@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchPatient } from '../../actions/patient/fetch_patient';
+import { fetchPatient } from '../../actions/patient/patient_actor';
 class SearchBar extends Component {
   constructor(props) {
     super(props);

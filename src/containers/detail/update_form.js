@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getDetailPatient } from '../../actions/patient/patient_selected';
-import { updatePatient } from '../../actions/patient/update_patient';
+import { getDetailPatient, updatePatient } from '../../actions/patient/patient_actor';
 import ContactItem from '../../containers/detail/contact_item';
-import {upload} from '../../actions/upload/index';
 import ReactDOM from 'react-dom';
 import {browserHistory} from 'react-router';
 
@@ -24,7 +22,8 @@ class UpdateForm extends Component {
           gender: null,
           pregnancy: null,
           elaboration: null,
-          contact: ''
+          contact: '',
+          errors: '',
         }
     };
     this.props.getDetailPatient(this.props.id).then((response) => {
@@ -44,7 +43,6 @@ class UpdateForm extends Component {
 
   onFormSubmit(event) {
       event.preventDefault();
-
       let formData = new FormData();
       let file = ReactDOM.findDOMNode(this.refs.fileInput).files[0];
       formData.append('file', file);
@@ -54,6 +52,10 @@ class UpdateForm extends Component {
       });
       this.props.updatePatient(data.id, formData).payload.then(response => {
           browserHistory.push('/home');
+      }).catch(error => {
+        this.setState({
+          errors: data.data.message
+        });
       });
   }
   imageChange(event) {
@@ -135,6 +137,7 @@ class UpdateForm extends Component {
     }
     return (
       <form onSubmit={ this.onFormSubmit }>
+        {this.state.errors && <p className="error-message">{this.state.errors}</p>}
         <div className="container detail-form">
           <div className="row">
             <div className="col-md-4 profile-photo left">
