@@ -11,7 +11,7 @@ class SearchBar extends Component {
                 <span className="status-title">STATUS</span>
                 <div className="dropdown">
                     <button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                        Dropdown
+                        Open
                         <span className="caret"></span>
                     </button>
                     <ul className="dropdown-menu">
@@ -28,7 +28,7 @@ class SearchBar extends Component {
                 <div className="dropdown">
                     <button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="true">
-                        Dropdown
+                        Last month
                         <span className="caret"></span>
                     </button>
                     <ul className="dropdown-menu">

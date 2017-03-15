@@ -107,7 +107,6 @@ class UpdateForm extends Component {
   }
 
   renderForm(patientSelected) {
-    console.log(patientSelected);
     let contacts = JSON.parse(patientSelected.contact);
     const contactItem = [];
     for (var i = 0; i < this.state.countContact; i += 1) {
