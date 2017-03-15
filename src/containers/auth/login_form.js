@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { login } from '../../actions/auth/login';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {login} from '../../actions/auth/login';
 import {browserHistory} from 'react-router';
 import Auth from '../../utils/Auth';
 
@@ -44,37 +44,42 @@ class LoginForm extends Component {
             user
         });
     }
+
     render() {
-        return(
-            <div className="form">
-                <form action="/" onSubmit={this.submitForm}>
-                    <h2>Login</h2>
+        return (
+            <div className="container">
+                <div className="col-md-offset-4 col-md-4">
+                    <div className="panel panel-default">
+                        <div className="panel-heading"><h3 className="panel-title"><strong>Sign In </strong></h3></div>
+                        <div className="panel-body">
+                            <form action="/" onSubmit={this.submitForm}>
+                                {this.state.errors && <div className="alert alert-danger">{this.state.errors}</div>}
+                                <div className="form-group">
+                                    <label>Username</label>
+                                    <input
+                                        className="form-control"
+                                        name="username"
+                                        type="text"
+                                        onChange={this.changeUser}
+                                        value={this.state.user.username}
+                                    />
+                                </div>
 
-                    {this.state.errors && <p className="error-message">{this.state.errors}</p>}
-
-                    <div className="field-line">
-                        <input
-                            name="username"
-                            type="text"
-                            onChange={this.changeUser}
-                            value={this.state.user.username}
-                        />
+                                <div className="form-group">
+                                    <label>Password</label>
+                                    <input
+                                        className="form-control"
+                                        type="password"
+                                        name="password"
+                                        onChange={this.changeUser}
+                                        value={this.state.user.password}
+                                    />
+                                </div>
+                                <input className="btn btn-sm btn-success" type="submit" value="Login"/>
+                            </form>
+                        </div>
                     </div>
-
-                    <div className="field-line">
-                        <input
-                            type="password"
-                            name="password"
-                            onChange={this.changeUser}
-                            value={this.state.user.password}
-                        />
-                    </div>
-
-                    <div className="button-line">
-                        <input type="submit" value="Login"/>
-                    </div>
-
-                </form>
+                </div>
             </div>
         );
     }
@@ -82,7 +87,7 @@ class LoginForm extends Component {
 
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ login }, dispatch);
+    return bindActionCreators({login}, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(LoginForm);
