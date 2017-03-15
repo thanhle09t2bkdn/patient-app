@@ -8,16 +8,16 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "postgres",
-    "password": "postgres",
+    "username": "username",
+    "password": "your password",
     "database": "patient-app-test",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"
-  },  
+  },
   "production": {
     "username": "username",
-    "password": "password",
+    "password": "your password",
     "database": "patient-app-production",
     "host": "127.0.0.1",
     "port": 5432,

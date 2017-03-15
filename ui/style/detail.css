@@ -1,0 +1,127 @@
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+.detail-form label {
+    color: rgb(103, 103, 103);
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0px 7px;
+}
+.detail-form input, textarea {
+    outline: none;
+    border: none;
+    margin-left: 5px;
+}
+.detail-form {
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    width: 500px;
+}
+.icon-camera {color: #bbb;font-size: 30px;}
+.icon-title {
+    font-size: 10px !important;
+    height: 20px;
+    width: 70px;
+    display: block;
+    color: rgba(97, 94, 94, 0.68) !important;
+    margin: auto !important;
+}
+.profile-photo {line-height: 15px;border: 1px dashed #bbb;border-radius: 50%;height: 92px;width: 92px;text-align: center;}
+.profile-photo span {margin-top: 15px;}
+.patient-form {
+    border: 1px solid #ededed;
+    border-radius: 3px;
+    width: 177px;
+    margin-bottom: 8px;
+    margin-right: initial;
+}
+.patient-form label{
+}
+.middle-form {
+    margin-right: 30px;
+}
+.patient-form-radio {
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    height: 45px;
+    width: 177px;
+}
+.patient-form-radio input {
+    float: left;
+    margin-left: 20px;
+}
+.patient-form-radio label {
+    margin: 0px 4px;
+    display: block;
+    float: left;
+}
+.row {
+    margin: 7px auto;
+}
+.gender-group input {
+    float: left;
+}
+.gender-group div {
+    display: inline-block;
+    margin-left: 5px;
+}
+.gender-group label {margin-top: 3px;}
+.textarea-form {border: 1px solid #ededed;border-radius: 3px;margin-bottom: 15px;}
+.textarea-form input {
+    width: 460px;
+    display: block;
+}
+.email-input{
+    width: 365px !important;
+}
+.media {
+    height: 90px;
+}
+.media-input{
+    /* height: 46px; */
+}
+.textarea-form textarea {
+    display: block;
+    width: 461px;
+    height: 67px;
+}
+.divided{
+    border-bottom: 1px solid #bbb;
+}
+.contact {margin-left: -15px;}
+.contact .contact-title {display: block;font-size: 18px;margin-top: 5px;}
+.contact-email textarea {
+    width: 362px;
+    height: 24px;
+}
+.contact-input-last {
+    margin-left: 18px;
+}
+.add-more-contact {
+    font-size: 13px;
+    color: #5bb2de;
+}
+.pregnancy{
+    float: left;
+    margin-right: 118px;
+    margin-top: 5px;
+}
+.pregnancy span {
+    font-size: 16px;
+}
+.pregnancy input {display: inline-block;float: left;}
+.submit button{
+    width: 100px;
+    height: 35px;
+    border: 1px solid #f0ad4e;
+    background-color: #fd8b28 !important;
+    color: white;
+    border-radius: 3px;
+    font-weight: bold;
+}

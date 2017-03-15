@@ -1,0 +1,50 @@
+
+/* home css */
+
+header {background-color: #bbb;}
+.home-wrapper {
+}
+
+.search-button button {
+    height: 43px;
+    background-color: orange !important;
+    width: 140px;
+    color: white;
+}
+.search-input input{
+    height: 43px;
+    margin-top: 8px;
+}
+.left-bar-top {margin-bottom: 15px;}
+.left-bar span {
+    margin-bottom: 5px;
+    display: block;
+    margin-left: 2px;
+}
+.left-bar {
+    float: left;
+    width: 255px;
+}
+.rigt-bar {
+    float: right;
+}
+.rigt-bar h3 {}
+
+.left-bar button {
+    width: 222px;
+}
+.status-title {}
+.left-bar-under {}
+.update-title {}
+.content {
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: white;
+}
+.dropdown-toggle::after {
+        margin-left: 12.25rem;
+}
+.dropdown-menu {
+    width: 223px;
+}
