@@ -8,11 +8,10 @@ import Login from './components/auth/login';
 
 const Routes = (props) => (
   <Router {...props}>
-      {/* onEnter={Auth.requireAuth}*/}
-      <Route path="/" component={ Home } />
-      <Route path="/home" component={ Home }/>
+      <Route path="/" component={ Home } onEnter={Auth.requireAuth}/>
+      <Route path="/home" component={ Home } onEnter={Auth.requireAuth}/>
       <Route path="/login" component={ Login } />
-      <Route path="/:id" component={ Detail } />
+      <Route path="/:id" component={ Detail } onEnter={Auth.requireAuth}/>
   </Router>
 );
 

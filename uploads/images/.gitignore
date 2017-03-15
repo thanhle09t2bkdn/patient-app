@@ -1,2 +1,4 @@
-!.gitignore
 *
+!.gitignore
+!no-avatar.png
+!no-image.jpg
