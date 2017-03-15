@@ -18,7 +18,7 @@ class PatientItem extends Component {
       return (
         <div className="media" onClick={() => {this.clickOnPatient(patient)}}>
             <div className="media-left">
-                <img src="https://www.w3schools.com/bootstrap/img_avatar1.png" alt="" className="media-object"  />
+                <img src={ patient.avatar ? `/uploads/${patient.avatar}` : `/uploads/images/no-avatar.png`} alt="" className="media-object"  />
             </div>
             <div className="media-body">
                 <h4 className="media-heading"><b>{ patient.name }</b></h4>
