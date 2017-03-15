@@ -7,10 +7,16 @@ export const FETCH_PATIENT = 'FETCH_PATIENT';
 export const UPDATE_PATIENT = 'UPDATE_PATIENT';
 export const PATIENT_SELECTED = 'PATIENT_SELECTED';
 import util from '../../utils/Auth'
-const header = {
-    headers: { 'Authorization': `Bearer ${util.getToken()}` }
-}
+
 export function fetchPatient(term) {
+    const token = util.getToken();
+    if (!token) {
+        return;
+    }
+
+    const header = {
+        headers: { 'Authorization': `Bearer ${util.getToken()}` }
+    }
     if (!term) {
         let request = axios.get(`${ROOT_URL}/patient/index`, header);
         return {
