@@ -10,17 +10,9 @@ class LoginForm extends Component {
 
     constructor(props) {
         super(props);
-        const storedMessage = localStorage.getItem('successMessage');
-        let successMessage = '';
-
-        if (storedMessage) {
-            successMessage = storedMessage;
-            localStorage.removeItem('successMessage');
-        }
 
         this.state = {
-            errors: {},
-            successMessage,
+            errors: '',
             user: {
                 username: '',
                 password: ''
@@ -36,7 +28,12 @@ class LoginForm extends Component {
         this.props.login(this.state.user).payload.then(response => {
             Auth.authenticateUser(response.data.data.token);
             browserHistory.push('/home');
-        }).catch((data) => {console.log(data);});
+        }).catch((data) => {
+            console.log(data.data.message);
+            this.setState({
+                errors: data.data.message
+            });
+        });
     }
 
     changeUser(event) {
@@ -53,8 +50,7 @@ class LoginForm extends Component {
                 <form action="/" onSubmit={this.submitForm}>
                     <h2>Login</h2>
 
-                    {this.state.successMessage && <p className="success-message">{this.state.successMessage}</p>}
-                    {this.state.errors.summary && <p className="error-message">{this.state.errors.summary}</p>}
+                    {this.state.errors && <p className="error-message">{this.state.errors}</p>}
 
                     <div className="field-line">
                         <input
