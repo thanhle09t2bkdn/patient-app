@@ -137,7 +137,7 @@ class UpdateForm extends Component {
     }
     return (
       <form onSubmit={ this.onFormSubmit }>
-        {this.state.errors && <p className="error-message">{this.state.errors}</p>}
+        {this.state.errors && <div class="alert alert-danger">{this.state.errors}</div>}
         <div className="container detail-form">
           <div className="row">
             <div className="col-md-4 profile-photo left">

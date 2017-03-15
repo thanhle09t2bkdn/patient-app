@@ -28,7 +28,7 @@ class LoginForm extends Component {
         event.preventDefault();
         this.props.login(this.state.user).payload.then(response => {
             Auth.authenticateUser(response.data.data.token);
-            browserHistory.push('/home');
+            browserHistory.push('/');
         }).catch(data => {
             this.setState({
                 errors: data.data.message
