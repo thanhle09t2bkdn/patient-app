@@ -127,7 +127,10 @@ class UpdateForm extends Component {
     let imagePreview = null;
     if (imagePreviewUrl) {
       imagePreview = (<img className="selective-img" src={ imagePreviewUrl } onClick={ this.trigerInputFile } />);
-    } else {
+    } else if(this.state.patient.avatar){
+        imagePreview = (<img className="default-img" src={`/uploads/${this.state.patient.avatar}`} onClick={ this.trigerInputFile } alt=""/>);
+    }
+    else {
       imagePreview = (<img className="default-img" src="/uploads/images/No-image-found.jpg" onClick={ this.trigerInputFile } alt=""/>);
     }
     return (
@@ -142,7 +145,7 @@ class UpdateForm extends Component {
             <div className="col-md-4 col-xs-4 middle-form left">
               <div className="patient-form">
                 <label>PATIENT ID</label>
-                <input type="text" disabled="disabled" placeholder="1234" defaultValue={ this.props.id } />
+                <input type="text" disabled="disabled" defaultValue={ this.props.id } />
               </div>
               <div className="patient-form">
                 <label>PATIENT NAME</label>
