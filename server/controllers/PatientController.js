@@ -40,9 +40,6 @@ module.exports = {
                             let oldPath = path.resolve(__dirname, '..', '..', `uploads/${oldFileName}`);
                             if(oldFileName){
                                 fs.unlink(oldPath, (error) => {
-                                    if (error) {
-                                        return res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST));
-                                    }
                                     Patient.findByPrimary(id).then(patient => {
                                         return res.json(Util.success('Update patients success!', patient));
                                     }).catch((error) => res.status(httpStatus.BAD_REQUEST).json(Util.error(error.message, httpStatus.BAD_REQUEST)));
