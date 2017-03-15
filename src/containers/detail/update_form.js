@@ -128,10 +128,10 @@ class UpdateForm extends Component {
     if (imagePreviewUrl) {
       imagePreview = (<img className="selective-img" src={ imagePreviewUrl } onClick={ this.trigerInputFile } />);
     } else if(this.state.patient.avatar){
-        imagePreview = (<img className="default-img" src={`/uploads/${this.state.patient.avatar}`} onClick={ this.trigerInputFile } alt=""/>);
+        imagePreview = (<img className="selective-img" src={`/uploads/${this.state.patient.avatar}`} onClick={ this.trigerInputFile } alt=""/>);
     }
     else {
-      imagePreview = (<img className="default-img" src="/uploads/images/no-image.jpg" onClick={ this.trigerInputFile } alt=""/>);
+      imagePreview = (<img className="selective-img" src="/uploads/images/no-image.jpg" onClick={ this.trigerInputFile } alt=""/>);
     }
     return (
       <form onSubmit={ this.onFormSubmit }>
